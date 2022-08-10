@@ -13,12 +13,12 @@ function ListaTema() {
     
   const[temas, setTemas] = useState<Tema[]>([])
   const [token, setToken] = useLocalStorage('token')
-  let navigate = useNavigate();
+  let history = useNavigate();
 
   useEffect (() => {
     if(token == ''){
       alert("Você precisa esta logado")
-      navigate("/login")
+      history("/login")
     }
   },[token])
 

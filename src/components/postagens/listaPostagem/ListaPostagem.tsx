@@ -9,16 +9,15 @@ import './ListaPostagem.css';
 import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service'
 
-
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   const [token, setToken] = useLocalStorage('token');
-  let navigate = useNavigate();
+  let history = useNavigate();
 
   useEffect(() => {
     if (token == "") {
       alert("Você precisa estar logado")
-      navigate("/login")
+      history("/login")
 
     }
   }, [token])
